@@ -1,0 +1,78 @@
+// Personal Finance - Учет личных финансов
+// Цветовая схема: Профессиональные финансовые цвета с зелёными и синими акцентами
+
+// Primary Colors - Изумрудно-зелёный (деньги, рост)
+$primary-color: #10b981;
+$primary-color-light: rgb(110, 225, 187);
+$primary-color-lightest: #a3ead2;
+$color-accent: #3be0a9;
+$color-accent-light: #63eabd;
+$primary-hover: #059669;
+$color-bg-primary-light: #d1fae5;
+$primary-color-dark: #047857;
+$primary-color-darkest: #034935;
+
+// Secondary Colors - Синий (стабильность)
+$secondary-color: #3b82f6;
+$secondary-hover: #2563eb;
+$secondary-light: #dbeafe;
+
+// Background Colors
+$color-bg-primary: #f8fafc;
+$color-bg-secondary: #ffffff;
+$color-bg-tertiary: #f1f5f9;
+$color-bg-primary-dark: #0f172a;
+
+// Text Colors
+$color-text-primary: #1e293b;
+$color-text-secondary: #475569;
+$color-text-muted: #94a3b8;
+$text-light: #f8fafc;
+$color-text-inverse: #94a3b8;
+
+// Border Colors
+$color-border-primary: #e2e8f0;
+$color-border-light: #f1f5f9;
+$color-border-dark: #cbd5e1;
+
+// Status Colors
+$color-success: #22c55e;
+$color-success-light: #25ea6d;
+$color-warning: #f59e0b;
+$color-warning-light: #f2b54d;
+$color-error: #ef4444;
+$color-error-light: #e77e7e;
+$color-info: #0ea5e9;
+$color-info-light: #66c1ec;
+
+// Financial Colors
+$income-color: #10b981;
+$expense-color: #ef4444;
+$savings-color: #3b82f6;
+$investment-color: #8b5cf6;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+$gradient-primary: linear-gradient(135deg, $primary-color 0%, $color-accent 100%);
+$gradient-header: linear-gradient(180deg, $primary-color-darkest 0%, $primary-color-dark 100%);
+$gradient-card: linear-gradient(145deg, $color-bg-primary 0%, $color-bg-secondary 100%);
+
+// Border Radius
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-normal: 250ms ease;
+$transition-slow: 350ms ease;
+
+// Z-Index Scale
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-modal: 300;
+$z-tooltip: 400;

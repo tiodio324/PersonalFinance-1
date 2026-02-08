@@ -1,0 +1,77 @@
+@use '@/styles/globalColors' as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+// Personal-Finance: Профессиональный финансовый стиль
+.form {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.roleSelector {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.roleButton {
+  @include flex-start;
+  gap: $spacing-md;
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  background: $color-bg-primary;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-fast;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: transparent;
+    border-radius: $radius-md 0 0 $radius-md;
+    transition: background $transition-fast;
+  }
+  
+  svg {
+    width: 28px;
+    height: 28px;
+    padding: $spacing-xs;
+    background: $color-bg-secondary;
+    border-radius: $radius-sm;
+    color: $color-text-muted;
+    transition: all $transition-fast;
+  }
+  
+  span {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+  }
+  
+  &:hover {
+    border-color: $primary-color-light;
+    background: $color-bg-secondary;
+    
+    &::before { background: $primary-color-light; }
+    svg { color: $primary-color; background: $primary-color-lightest; }
+  }
+  
+  &.active {
+    border-color: $primary-color;
+    
+    &::before { background: $primary-color; }
+    svg { color: $primary-color; background: $primary-color-lightest; }
+    span { color: $primary-color; font-weight: $font-weight-semibold; }
+  }
+}
+
+.actions {
+  @include flex-end;
+  gap: $spacing-md;
+  margin-top: $spacing-sm;
+}

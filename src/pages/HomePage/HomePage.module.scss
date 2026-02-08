@@ -1,0 +1,419 @@
+@use '@/styles/globalColors' as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+// ============================================
+// HomePage — Главная страница
+// ============================================
+
+.homePage {
+  @include flex-column;
+  gap: $spacing-xl;
+  padding: $spacing-xl;
+  max-width: $container-xl;
+  margin: 0 auto;
+  width: 100%;
+
+  @include mobile {
+    padding: $spacing-md;
+    gap: $spacing-lg;
+  }
+}
+
+// ============================================
+// Welcome Banner
+// ============================================
+
+.welcome {
+  @include flex-between;
+  gap: $spacing-lg;
+  padding: $spacing-xl $spacing-2xl;
+  background: $color-bg-secondary;
+  border-radius: $radius-lg;
+  border: 1px solid $color-border-light;
+  border-left: 6px solid $primary-color;
+  box-shadow: $shadow-sm;
+
+  h1 {
+    @include heading-2;
+    margin: 0;
+  }
+
+  p {
+    @include body-text;
+    margin: 0;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    text-align: center;
+    padding: $spacing-lg;
+  }
+}
+
+// ============================================
+// Stats Grid — Карточки статистики
+// ============================================
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  @include card;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  border-left: 4px solid $color-border-primary;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &.balance {
+    border-left-color: $primary-color;
+
+    .statIcon {
+      background: rgba($primary-color, 0.1);
+      color: $primary-color;
+    }
+  }
+
+  &.income {
+    border-left-color: $income-color;
+
+    .statIcon {
+      background: rgba($income-color, 0.1);
+      color: $income-color;
+    }
+  }
+
+  &.expense {
+    border-left-color: $expense-color;
+
+    .statIcon {
+      background: rgba($expense-color, 0.1);
+      color: $expense-color;
+    }
+  }
+}
+
+.statIcon {
+  @include flex-center;
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-md;
+  font-size: $font-size-xl;
+  flex-shrink: 0;
+  background: rgba($color-info, 0.1);
+  color: $color-info;
+}
+
+.statInfo {
+  @include flex-column;
+  gap: $spacing-xs;
+  min-width: 0;
+}
+
+.statValue {
+  font-family: $font-family-mono;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  @include text-ellipsis;
+}
+
+.statLabel {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// ============================================
+// Content Grid — Основной контент
+// ============================================
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: $spacing-xl;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ============================================
+// Section — Блоки контента
+// ============================================
+
+.section {
+  @include card;
+  padding: $spacing-lg;
+
+  h2 {
+    font-family: $font-family-primary;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin: 0 0 $spacing-md;
+  }
+}
+
+.sectionHeader {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+
+  h2 {
+    margin: 0 !important;
+  }
+}
+
+.viewAllBtn {
+  @include button-base;
+  background: transparent;
+  color: $primary-color;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-sm;
+
+  &:hover {
+    background: rgba($primary-color, 0.08);
+    color: $primary-hover;
+  }
+}
+
+// ============================================
+// Transactions — Список транзакций
+// ============================================
+
+.transactionsList {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.transactionCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  background: $color-bg-primary;
+  border: 1px solid $color-border-light;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $color-bg-tertiary;
+    border-color: $color-border-primary;
+  }
+}
+
+.transactionIcon {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+  flex-shrink: 0;
+}
+
+.transactionInfo {
+  @include flex-column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.transactionDescription {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  @include text-ellipsis;
+}
+
+.transactionMeta {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.transactionAmount {
+  font-family: $font-family-mono;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  white-space: nowrap;
+
+  &.income {
+    color: $income-color;
+  }
+
+  &.expense {
+    color: $expense-color;
+  }
+}
+
+.emptyState {
+  @include flex-center;
+  padding: $spacing-2xl $spacing-lg;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+
+  p {
+    margin: 0;
+  }
+}
+
+// ============================================
+// Sidebar — Боковая колонка
+// ============================================
+
+.sidebar {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+// ============================================
+// Accounts — Счета
+// ============================================
+
+.accountsList {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.accountCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $color-bg-tertiary;
+  }
+}
+
+.accountIcon {
+  @include flex-center;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-sm;
+  font-size: $font-size-base;
+  flex-shrink: 0;
+}
+
+.accountInfo {
+  @include flex-column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.accountName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  @include text-ellipsis;
+}
+
+.accountBalance {
+  font-family: $font-family-mono;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $primary-color;
+}
+
+// ============================================
+// Budgets — Бюджеты
+// ============================================
+
+.budgetsList {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.budgetCard {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.budgetHeader {
+  @include flex-between;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+
+  .overBudget {
+    color: $color-error;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.overBudget {
+  color: $color-error;
+  font-weight: $font-weight-semibold;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: $color-bg-tertiary;
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: $primary-color;
+  border-radius: $radius-full;
+  transition: width $transition-slow;
+
+  &.over {
+    background: $color-error;
+  }
+}
+
+// ============================================
+// Quick Actions — Быстрые действия
+// ============================================
+
+.quickActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.actionBtn {
+  @include button-base;
+  background: $color-bg-primary;
+  color: $color-text-secondary;
+  border: 1px solid $color-border-primary;
+  font-size: $font-size-sm;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+
+  &:hover {
+    background: $primary-color;
+    color: white;
+    border-color: $primary-color;
+    box-shadow: $shadow-sm;
+  }
+}

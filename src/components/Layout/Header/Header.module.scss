@@ -1,0 +1,132 @@
+@use '@/styles/globalColors' as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.header {
+  @include flex-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  padding: 0 $spacing-xl;
+  background: $gradient-header;
+  color: $color-text-inverse;
+  z-index: $z-fixed;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  
+  @include mobile {
+    padding: 0 $spacing-md;
+  }
+}
+
+.left {
+  @include flex-start;
+  gap: $spacing-md;
+}
+
+.menuButton {
+  display: none;
+  padding: $spacing-sm;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: $color-text-inverse;
+  cursor: pointer;
+  border-radius: $radius-sm;
+  transition: all $transition-fast;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  @include mobile-tablet {
+    display: flex;
+  }
+}
+
+.logo {
+  @include flex-start;
+  gap: $spacing-sm;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.logoSquare {
+  @include flex-center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: $radius-sm;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.logoIcon {
+  width: 20px;
+  height: 20px;
+  color: $color-accent;
+}
+
+.logoText {
+  font-family: $font-family-secondary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.5px;
+  
+  @include mobile {
+    display: none;
+  }
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: $font-family-secondary;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  margin: 0;
+  
+  @include mobile {
+    display: none;
+  }
+}
+
+.right {
+  @include flex-start;
+  gap: $spacing-md;
+}
+
+.userInfo {
+  @include flex-start;
+  gap: $spacing-md;
+}
+
+.role {
+  font-size: $font-size-xs;
+  color: $color-text-inverse;
+  padding: $spacing-xs $spacing-md;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: $radius-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: $font-weight-bold;
+  
+  @include mobile {
+    display: none;
+  }
+}
+
+.headerButton {
+  color: $color-accent !important;
+  border-color: $color-accent !important;
+  
+  &:hover {
+    background: rgba($color-accent, 0.1) !important;
+  }
+}

@@ -1,0 +1,319 @@
+@import '@/styles/globalColors';
+
+.transactionsPage {
+  padding: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  h1 {
+    font-size: 1.75rem;
+    color: $color-text-primary;
+  }
+}
+
+.addBtn {
+  padding: 12px 24px;
+  background: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: $primary-hover;
+  }
+}
+
+.form {
+  background: $color-bg-secondary;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid $color-border-primary;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.typeSelector {
+  display: flex;
+  gap: 12px;
+  grid-column: 1 / -1;
+}
+
+.typeBtn {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid $color-border-primary;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: $primary-color;
+  }
+
+  &.active {
+    background: $primary-color-light;
+    border-color: $primary-color;
+    color: $primary-color-dark;
+    font-weight: 600;
+  }
+}
+
+.formGroup {
+  label {
+    display: block;
+    margin-bottom: 6px;
+    color: $color-text-secondary;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid $color-border-primary;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: $color-bg-primary;
+    color: $color-text-primary;
+    transition: border-color 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 14px;
+  background: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 8px;
+
+  &:hover {
+    background: $primary-hover;
+  }
+}
+
+.filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  border: 2px solid $color-border-primary;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: $color-bg-secondary;
+  color: $color-text-primary;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+  }
+}
+
+.typeFilters {
+  display: flex;
+  gap: 8px;
+}
+
+.filterBtn {
+  padding: 10px 16px;
+  border: 2px solid $color-border-primary;
+  border-radius: 8px;
+  background: transparent;
+  color: $color-text-secondary;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: $primary-color;
+  }
+
+  &.active {
+    background: $primary-color;
+    border-color: $primary-color;
+    color: #fff;
+  }
+}
+
+.transactionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.transactionCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: $color-bg-secondary;
+  border-radius: 12px;
+  border: 1px solid $color-border-primary;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+.transactionIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.transactionInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.transactionDescription {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $color-text-primary;
+}
+
+.transactionMeta {
+  font-size: 0.85rem;
+  color: $color-text-muted;
+}
+
+.transactionAmount {
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  &.income {
+    color: $income-color;
+  }
+
+  &.expense {
+    color: $expense-color;
+  }
+}
+
+.deleteBtn {
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0.5;
+  transition: opacity 0.2s, background-color 0.2s;
+
+  &:hover {
+    opacity: 1;
+    background: rgba($color-error, 0.1);
+  }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  background: $color-bg-secondary;
+  border-radius: 12px;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.emptyState h3 {
+  font-size: 1.5rem;
+  color: $color-text-primary;
+  margin-bottom: 8px;
+}
+
+.emptyState p {
+  color: $color-text-secondary;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  gap: 16px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid $color-border-primary;
+  border-top-color: $primary-color;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .transactionsPage {
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .transactionCard {
+    flex-wrap: wrap;
+  }
+}
